@@ -9,7 +9,8 @@ namespace AlgorithmAnalyzer
         {
             List<IAlgorithm> algorythms = new List<IAlgorithm>()
             {
-                new BubbleSort()
+                new BubbleSort(),
+                new ConstFunc()
             };
             foreach (var algo in algorythms)
             {
