@@ -14,7 +14,8 @@ namespace AlgorithmAnalyzer
                 new BubbleSort(),
                 new Timsort(),
                 new SumOfElements(),
-                new MultiplicationOfElements()
+                new MultiplicationOfElements(),
+                new Polynomial()
             };
             List<IAlgorithm<Tuple<int, int>>> algorithmsPower = new List<IAlgorithm<Tuple<int, int>>>
             {
