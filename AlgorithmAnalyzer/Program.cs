@@ -20,7 +20,7 @@ namespace AlgorithmAnalyzer
             };
             List<IAlgorithm<Tuple<int[,], int[,]>>> algorithmsOfMatrix = new List<IAlgorithm<Tuple<int[,], int[,]>>>
             {
-  
+                new MultiplyMatrix()
             };
             List<AnalyzeResult> results = new List<AnalyzeResult> ();
             results.AddRange(algorithmsOfIntArray.Select(x => Analyzer.Evaluate(x)).ToList());
