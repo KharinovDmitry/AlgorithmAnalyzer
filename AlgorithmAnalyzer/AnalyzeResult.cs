@@ -8,9 +8,6 @@ namespace AlgorithmAnalyzer
 {
     internal class AnalyzeResult
     {
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+
     }
 }

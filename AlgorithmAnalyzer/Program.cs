@@ -8,13 +8,24 @@ namespace AlgorithmAnalyzer
     {
         static void Main(string[] args)
         {
-            List<IAlgorithm<int[]>> algorithmsOfInt = new List<IAlgorithm<int[]>>
+            List<IAlgorithm<int[]>> algorithmsOfIntArray = new List<IAlgorithm<int[]>>
             {
                 new ConstFunc(),
-                new BubbleSort()
+                new BubbleSort(),
+                new Timsort()
+            };
+            List<IAlgorithm<int>> algorithmsOfInt = new List<IAlgorithm<int>>
+            {
+
+            };
+            List<IAlgorithm<Tuple<int[,], int[,]>>> algorithmsOfMatrix = new List<IAlgorithm<Tuple<int[,], int[,]>>>
+            {
+  
             };
             List<AnalyzeResult> results = new List<AnalyzeResult> ();
+            results.AddRange(algorithmsOfIntArray.Select(x => Analyzer.Evaluate(x)).ToList());
             results.AddRange(algorithmsOfInt.Select(x => Analyzer.Evaluate(x)).ToList());
+            results.AddRange(algorithmsOfMatrix.Select(x => Analyzer.Evaluate(x)).ToList());
         } 
     }
 }

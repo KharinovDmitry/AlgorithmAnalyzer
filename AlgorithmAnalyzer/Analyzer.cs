@@ -19,7 +19,7 @@ namespace AlgorithmAnalyzer
             return null;
         }
 
-        public static AnalyzeResult Evaluate(IAlgorithm<Tuple<int[], int[]>> algorithm)
+        public static AnalyzeResult Evaluate(IAlgorithm<Tuple<int[,], int[,]>> algorithm)
         {
             return null;
         }
