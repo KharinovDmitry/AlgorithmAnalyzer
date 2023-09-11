@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class BubbleSort : IAlgorithm
+    public class BubbleSort : IAlgorithm<int[]>
     {
         public void Execute(int[] input)
         {

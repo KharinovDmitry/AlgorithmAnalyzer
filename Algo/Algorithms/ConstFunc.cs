@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class ConstFunc : IAlgorithm
+    public class ConstFunc : IAlgorithm<int[]>
     {
         public void Execute(int[] input)
         {

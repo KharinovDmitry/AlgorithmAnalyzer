@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Algo
 {
-    public interface IAlgorithm
+    public interface IAlgorithm<T>
     {
-        public void Execute(int[] input);
+        public void Execute(T input);
     }
 }

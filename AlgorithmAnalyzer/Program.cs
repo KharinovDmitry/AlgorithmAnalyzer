@@ -1,5 +1,6 @@
 ﻿using Algo;
 using Algo.Algorithms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AlgorithmAnalyzer
 {
@@ -7,18 +8,13 @@ namespace AlgorithmAnalyzer
     {
         static void Main(string[] args)
         {
-            List<IAlgorithm> algorythms = new List<IAlgorithm>()
+            List<IAlgorithm<int[]>> algorithmsOfInt = new List<IAlgorithm<int[]>>
             {
-                new BubbleSort(),
-                new ConstFunc()
+                new ConstFunc(),
+                new BubbleSort()
             };
-            foreach (var algo in algorythms)
-            {
-                Console.WriteLine(algo.GetType().Name);    
-                var result = Analyzer.Evaluate(algo);
-                Console.WriteLine(result.ToString());
-                CsvWriter.WriteAnalyzeResult(result);
-            }
-        }
+            List<AnalyzeResult> results = new List<AnalyzeResult> ();
+            results.AddRange(algorithmsOfInt.Select(x => Analyzer.Evaluate(x)).ToList());
+        } 
     }
 }

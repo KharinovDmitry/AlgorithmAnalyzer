@@ -9,7 +9,17 @@ namespace AlgorithmAnalyzer
 {
     internal class Analyzer
     {
-        public static AnalyzeResult Evaluate(IAlgorithm algorythm)
+        public static AnalyzeResult Evaluate(IAlgorithm<int[]> algorythm)
+        {
+            return null;
+        }
+
+        public static AnalyzeResult Evaluate(IAlgorithm<int> algorythm)
+        {
+            return null;
+        }
+
+        public static AnalyzeResult Evaluate(IAlgorithm<Tuple<int[], int[]>> algorithm)
         {
             return null;
         }
