@@ -10,6 +10,7 @@ namespace AlgorithmAnalyzer
         {
             List<IAlgorithm<int[]>> algorithmsOfIntArray = new List<IAlgorithm<int[]>>
             {
+                new BinarySearch(),
                 new ConstFunc(),
                 new BubbleSort(),
                 new Timsort(),
