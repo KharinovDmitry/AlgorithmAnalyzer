@@ -14,7 +14,7 @@ namespace AlgorithmAnalyzer
                 new BubbleSort(),
                 new Timsort()
             };
-            List<IAlgorithm<int>> algorithmsOfInt = new List<IAlgorithm<int>>
+            List<IAlgorithm<Tuple<int, int>>> algorithmsPower = new List<IAlgorithm<Tuple<int, int>>>
             {
 
             };
@@ -24,8 +24,9 @@ namespace AlgorithmAnalyzer
             };
             List<AnalyzeResult> results = new List<AnalyzeResult> ();
             results.AddRange(algorithmsOfIntArray.Select(x => Analyzer.Evaluate(x)).ToList());
-            results.AddRange(algorithmsOfInt.Select(x => Analyzer.Evaluate(x)).ToList());
+            results.AddRange(algorithmsPower.Select(x => Analyzer.Evaluate(x)).ToList());
             results.AddRange(algorithmsOfMatrix.Select(x => Analyzer.Evaluate(x)).ToList());
+            results.ForEach(x => CsvWriter.WriteAnalyzeResult(x));
         } 
     }
 }
