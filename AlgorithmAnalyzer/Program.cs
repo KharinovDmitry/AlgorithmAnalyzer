@@ -16,6 +16,10 @@ namespace AlgorithmAnalyzer
             };
             List<IAlgorithm<Tuple<int, int>>> algorithmsPower = new List<IAlgorithm<Tuple<int, int>>>
             {
+                new Exponentiate1(),
+                new Exponentiate2(),
+                new Exponentiate3(),
+                new Exponentiate4(),
 
             };
             List<IAlgorithm<Tuple<int[,], int[,]>>> algorithmsOfMatrix = new List<IAlgorithm<Tuple<int[,], int[,]>>>
