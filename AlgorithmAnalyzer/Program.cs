@@ -1,5 +1,6 @@
 ﻿using Algo;
 using Algo.Algorithms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AlgorithmAnalyzer
 {
@@ -7,17 +8,29 @@ namespace AlgorithmAnalyzer
     {
         static void Main(string[] args)
         {
-            List<IAlgorithm> algorythms = new List<IAlgorithm>()
+            List<IAlgorithm<int[]>> algorithmsOfIntArray = new List<IAlgorithm<int[]>>
             {
-                new BubbleSort()
+                new ConstFunc(),
+                new BubbleSort(),
+                new Timsort()
             };
-            foreach (var algo in algorythms)
+            List<IAlgorithm<Tuple<int, int>>> algorithmsPower = new List<IAlgorithm<Tuple<int, int>>>
             {
-                Console.WriteLine(algo.GetType().Name);    
-                var result = Analyzer.Evaluate(algo);
-                Console.WriteLine(result.ToString());
-                CsvWriter.WriteAnalyzeResult(result);
-            }
-        }
+                new Exponentiate1(),
+                new Exponentiate2(),
+                new Exponentiate3(),
+                new Exponentiate4(),
+
+            };
+            List<IAlgorithm<Tuple<int[,], int[,]>>> algorithmsOfMatrix = new List<IAlgorithm<Tuple<int[,], int[,]>>>
+            {
+                new MultiplyMatrix()
+            };
+            List<AnalyzeResult> results = new List<AnalyzeResult> ();
+            results.AddRange(algorithmsOfIntArray.Select(x => Analyzer.Evaluate(x)).ToList());
+            results.AddRange(algorithmsPower.Select(x => Analyzer.Evaluate(x)).ToList());
+            results.AddRange(algorithmsOfMatrix.Select(x => Analyzer.Evaluate(x)).ToList());
+            results.ForEach(x => CsvWriter.WriteAnalyzeResult(x));
+        } 
     }
 }

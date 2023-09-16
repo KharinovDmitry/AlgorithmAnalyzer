@@ -8,9 +8,32 @@ namespace AlgorithmAnalyzer
 {
     internal class AnalyzeResult
     {
-        public override string ToString()
+        public string Title { get; }
+
+        public List<TimeMeasurement> Measurements { get; }
+
+        public AnalyzeResult(string title) 
+        { 
+            Title = title; 
+            Measurements= new List<TimeMeasurement>();
+        }
+
+        public void AddMeasurement(int arrLength, double time)
         {
-            return base.ToString();
+            Measurements.Add(new TimeMeasurement(arrLength, time));
+        }
+
+    }
+
+    internal class TimeMeasurement
+    {
+       public int ArrayLength { get; }
+       public double TimeInS { get; }
+
+       public TimeMeasurement(int arrayLength, double timeInMs)
+        {
+            ArrayLength = arrayLength;
+            TimeInS = timeInMs;
         }
     }
 }

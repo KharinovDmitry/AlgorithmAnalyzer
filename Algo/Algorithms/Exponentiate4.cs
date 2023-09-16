@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algo
+namespace Algo.Algorithms
 {
-    public interface IAlgorithm<T>
+    internal class Exponentitate4
     {
-        public void Execute(T input);
     }
 }
