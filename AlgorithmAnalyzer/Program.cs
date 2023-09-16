@@ -17,7 +17,8 @@ namespace AlgorithmAnalyzer
                 new SumOfElements(),
                 new MultiplicationOfElements(),
                 new Polynomial(),
-                new QuickSort()
+                new QuickSort(),
+                new ArithmeticMean()
             };
             List<IAlgorithm<Tuple<int, int>>> algorithmsPower = new List<IAlgorithm<Tuple<int, int>>>
             {
