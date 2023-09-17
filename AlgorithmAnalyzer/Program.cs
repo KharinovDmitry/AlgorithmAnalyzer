@@ -18,7 +18,9 @@ namespace AlgorithmAnalyzer
                 new MultiplicationOfElements(),
                 new Polynomial(),
                 new QuickSort(),
-                new ArithmeticMean()
+                new ArithmeticMean(),
+                new GornerMethod()
+
             };
             List<IAlgorithm<Tuple<int, int>>> algorithmsPower = new List<IAlgorithm<Tuple<int, int>>>
             {
