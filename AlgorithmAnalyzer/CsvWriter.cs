@@ -10,6 +10,7 @@ namespace AlgorithmAnalyzer
     {
         public static void WriteAnalyzeResult(AnalyzeResult result)
         {
+            string pathCsvFile = "D:\\Charts.csv";
 
         }
     }
