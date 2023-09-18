@@ -15,7 +15,7 @@ namespace AlgorithmAnalyzer
         public AnalyzeResult(string title) 
         { 
             Title = title; 
-            Measurements= new List<TimeMeasurement>();
+            Measurements = new List<TimeMeasurement>();
         }
 
         public void AddMeasurement(int arrLength, double time)
