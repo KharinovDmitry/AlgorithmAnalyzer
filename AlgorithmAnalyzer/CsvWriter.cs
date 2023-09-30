@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using OfficeOpenXml;
 
 namespace AlgorithmAnalyzer
 {
@@ -12,20 +12,27 @@ namespace AlgorithmAnalyzer
     {
         public static void WriteAnalyzeResult(AnalyzeResult result)
         {
-            //string pathCsvFile = "D:\\Charts.csv";
-            //List<TimeMeasurement> measurements = new List<TimeMeasurement>();
-            for (int i = 0; i < result.Measurements.Count; i++)
+            ExcelPackage.LicenseContext = LicenseContext.Commercial;
+            using (ExcelPackage package = new ExcelPackage(new FileInfo("D:\\Charts.xlsx")))
             {
-                //var csv = new StringBuilder();
-                var ArrLength = result.Measurements[i].ArrayLength;
-                var Time = result.Measurements[i].TimeInS;
-                var newLine = string.Format("{Lenght},{Time}", ArrLength, Time);
-                using (StreamWriter sw = File.CreateText("D:\\Charts.csv"))
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(result.Title);
+
+                worksheet.Cells[1, 1].Value = "ArrLength";
+                worksheet.Cells[1, 2].Value = "Time";
+
+                for (int i = 0; i < result.Measurements.Count; i++)
                 {
-                    sw.WriteLine(newLine);
+                    var ArrLength = result.Measurements[i].ArrayLength;
+                    var Time = result.Measurements[i].TimeInS;
+
+                    worksheet.Cells[i + 2, 1].Value = ArrLength;
+                    worksheet.Cells[i + 2, 2].Value = Time;
                 }
-                    //File.WriteAllText(pathCsvFile, csv.ToString());
-            }                                      
+
+                package.Save();
+            }
+
+
         }
     }
 }
