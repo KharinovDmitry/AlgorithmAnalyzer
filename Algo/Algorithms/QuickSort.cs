@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class QuickSort : IAlgorithm<int[]>
+    public class QuickSort : IAlgorithm<int[], int[]>
     {
-        public void Execute(int[] input)
+        public int[] Execute(int[] input)
         {
             Sort(input, 0, input.Length - 1);
+            return input;
         }
 
         private void Sort(int[] input, int startIndex, int endIndex)

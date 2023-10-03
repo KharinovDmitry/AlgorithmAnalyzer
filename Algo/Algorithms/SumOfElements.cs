@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class SumOfElements : IAlgorithm<int[]>
+    public class SumOfElements : IAlgorithm<int, int[]>
     {
-        public void Execute(int[] input)
+        public int Execute(int[] input)
         {
             var sum = 0;
 
@@ -16,6 +16,8 @@ namespace Algo.Algorithms
             {
                 sum += number;
             }
+
+            return sum;
         }
     }
 }

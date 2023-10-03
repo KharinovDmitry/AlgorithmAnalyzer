@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class MultiplicationOfElements : IAlgorithm<int[]>
+    public class MultiplicationOfElements : IAlgorithm<int, int[]>
     {
-        public void Execute(int[] input)
+        public int Execute(int[] input)
         {
             var res = 1;
 
@@ -16,6 +16,8 @@ namespace Algo.Algorithms
             {
                 res *= number;
             }
+
+            return res;
         }
     }
 }

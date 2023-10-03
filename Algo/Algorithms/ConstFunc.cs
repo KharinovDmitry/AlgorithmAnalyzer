@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class ConstFunc : IAlgorithm<int[]>
+    public class ConstFunc : IAlgorithm<int, int[]>
     {
-        public void Execute(int[] input)
+        public int Execute(int[] input)
         {
-            var res = input[0];
+            return input[0];
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class BinarySearch : IAlgorithm<int[]>
+    public class BinarySearch : IAlgorithm<int, int[]>
     {
-        public void Execute(int[] input)
+        public int Execute(int[] input)
         {
             int searchableEl = new Random().Next(1, 1000);
-            var res = binarySearch(input, searchableEl, 0, input.Length - 1);
+            return binarySearch(input, searchableEl, 0, input.Length - 1);
         }
 
         private int binarySearch(int[] array, int searchedValue, int first, int last)

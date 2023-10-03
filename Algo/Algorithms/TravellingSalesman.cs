@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class TravellingSalesman : IAlgorithm<int[,]>
+    public class TravellingSalesman : IAlgorithm<int[], int[,]>
     {
         int[,] distanceMatrix;
         int[] bestTour;
         int bestTourCost;
         int n;
 
-        public void Execute(int[,] input)
+        public int[] Execute(int[,] input)
         {
             distanceMatrix = input;
             n = distanceMatrix.GetLength(0);
@@ -28,6 +28,8 @@ namespace Algo.Algorithms
             bestTour.CopyTo(temp, 0);
             temp[temp.Length - 1] = 0;
             bestTour = temp;
+
+            return bestTour;
         }
 
         private void FindBestTour(int currentCity, int[] visitedCities, int currentCost)

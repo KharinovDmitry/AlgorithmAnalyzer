@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class GornerMethod : IAlgorithm<int[]>
+    public class GornerMethod : IAlgorithm<double, int[]>
     {
-        public void Execute(int[] input)
+        public double Execute(int[] input)
         {
-            double p = CalcP(input, 0, 1.5);
+            return CalcP(input, 0, 1.5);
         }
 
         private double CalcP(int[] input, int n, double x)

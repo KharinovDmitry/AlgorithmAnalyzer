@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class Timsort : IAlgorithm<int[]>
+    public class Timsort : IAlgorithm<int[], int[]>
     {
-        public void Execute(int[] input)
+        public int[] Execute(int[] input)
         {
             int minRun = calcMinRun(input.Length);
 
@@ -33,6 +33,7 @@ namespace Algo.Algorithms
 
                 size *= 2;
             }
+            return input;
         }
         private int calcMinRun(int length)
         {

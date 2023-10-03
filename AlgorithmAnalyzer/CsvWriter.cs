@@ -13,7 +13,7 @@ namespace AlgorithmAnalyzer
         public static void WriteAnalyzeResult(AnalyzeResult result)
         {
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
-            using (ExcelPackage package = new ExcelPackage(new FileInfo("D:\\Charts.xlsx")))
+            using (ExcelPackage package = new ExcelPackage(new FileInfo("Charts.xlsx")))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(result.Title);
 
@@ -31,8 +31,6 @@ namespace AlgorithmAnalyzer
 
                 package.Save();
             }
-
-
         }
     }
 }

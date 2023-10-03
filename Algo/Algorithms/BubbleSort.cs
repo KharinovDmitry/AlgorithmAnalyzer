@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class BubbleSort : IAlgorithm<int[]>
+    public class BubbleSort : IAlgorithm<int[], int[]>
     {
-        public void Execute(int[] input)
+        public int[] Execute(int[] input)
         {
             for (int i = 0; i < input.Length - 1; i++)
             {
@@ -22,6 +22,7 @@ namespace Algo.Algorithms
                     }
                 }
             }
+            return input;
         }
     }
 }
