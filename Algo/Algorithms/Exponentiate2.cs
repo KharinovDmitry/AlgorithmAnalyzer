@@ -17,8 +17,10 @@ namespace Algo.Algorithms
         {
             int countstep = 0; ;
             if (pow == 0)
+            {
                 countstep += 2;
                 return value;
+            }
             if (pow > 0)
             {
                 countstep += 5;
