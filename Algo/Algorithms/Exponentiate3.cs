@@ -20,7 +20,6 @@ namespace Algo.Algorithms
                 result = c;
                 countstep += 2;
             }
-
             else
             {
                 result = 1;
@@ -36,7 +35,6 @@ namespace Algo.Algorithms
                     countstep += 2;
                     result *= c;
                 }
-
             }
             countstep += 1;
             return countstep;

@@ -178,10 +178,11 @@ namespace AlgorithmAnalyzer
         }
         private static int[] GenerateRandomArray(int n)
         {
+            Random rand = new Random();
             int[] res = new int[n];
             for (int i = 0; i < n; i++)
             {
-                res[i] = new Random((int)(DateTime.Now.Ticks % (i + 1))).Next(0, 1000);
+                res[i] = rand.Next(0, 1000);
             }
             return res;
         }

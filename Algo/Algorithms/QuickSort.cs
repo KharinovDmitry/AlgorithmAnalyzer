@@ -35,7 +35,7 @@ namespace Algo.Algorithms
             {
                 if (input[j] < pivot)
                 {
-                    i++;
+                    i++;    
                     Swap(input, i, j);
                 }
             }

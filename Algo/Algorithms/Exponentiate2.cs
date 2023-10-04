@@ -11,20 +11,21 @@ namespace Algo.Algorithms
         private static int countstep = 0;
         public int Execute(Tuple<int, int> input)
         {
-            return Exponentiate(input.Item1, input.Item2); 
-            
+            var res = Exponentiate(input.Item1, input.Item2);
+            return res.Item2;
         }
-        public static int Exponentiate(int value, int pow)
+        public static (int, int) Exponentiate(int value, int pow)
         {
             if (pow == 0)
             {
                 countstep += 2;
-                return countstep;
+                return (1, countstep);
             }
             if (pow > 0)
             {
                 countstep += 5;
-                return Exponentiate(value, pow - 1);
+                var res = Exponentiate(value, pow - 1);
+                return (res.Item1 * value, res.Item2);
                 
             }
             return Exponentiate(value, -pow);

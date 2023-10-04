@@ -11,20 +11,21 @@ namespace Algo.Algorithms
     {
         public int[] Execute(int[] input)
         {
-            int minRun = calcMinRun(input.Length); //
+
+            int minRun = calcMinRun(input.Length); 
 
             for (int start = 0; start < input.Length; start += minRun)
             {
-                int end = Math.Min(start + minRun - 1, input.Length - 1);
-                insertionSort(input, start, end);
+                int end = Math.Min(start + minRun - 1, input.Length - 1); 
+                insertionSort(input, start, end); 
             }
             int size = minRun;
-            while (size < input.Length)
+            while (size < input.Length) 
             {
                 for (int left = 0; left < input.Length; left += 2 * size)
                 {
-                    int middle = Math.Min(input.Length - 1, left + size - 1);
-                    int right = Math.Min(left + 2 * size - 1, input.Length - 1);
+                    int middle = Math.Min(input.Length - 1, left + size - 1); 
+                    int right = Math.Min(left + 2 * size - 1, input.Length - 1); 
                     if (middle < right)
                     {
                         merge(input, left, middle, right);
@@ -38,7 +39,7 @@ namespace Algo.Algorithms
         private int calcMinRun(int length)
         {
             int r = 0;
-            while (length >= 32)
+            while (length >= 64)
             {
                 r |= length & 1;
                 length >>= 1;
@@ -62,9 +63,9 @@ namespace Algo.Algorithms
             }
         }
 
-        private void merge(int[] arr, int left, int middle, int right)
+        private void merge(int[] arr, int left, int middle, int right) 
         {
-            int len1 = middle - left + 1, len2 = right - middle, i;
+            int len1 = middle - left + 1, len2 = right - middle, i; 
             int[] leftArr = new int[len1];
             int[] rightArr = new int[len2];
             for (i = 0; i < len1; i++)
@@ -76,7 +77,7 @@ namespace Algo.Algorithms
                 rightArr[i] = arr[middle + 1 + i];
             }
 
-            int j = 0, k = left;
+            int j = 0, k = left; 
             i = 0;
             while (i < len1 && j < len2)
             {

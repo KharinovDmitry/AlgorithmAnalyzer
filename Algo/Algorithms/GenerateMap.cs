@@ -117,7 +117,7 @@ namespace Algo.Algorithms
 
             public void UpRang(int newRang)
             {
-                if (newRang < Rang || newRang % Rang != 0)
+                if (newRang < Rang || newRang % Rang != 0) 
                     throw new ArgumentException();
 
                 int[,] newMatrix = new int[newRang, newRang];

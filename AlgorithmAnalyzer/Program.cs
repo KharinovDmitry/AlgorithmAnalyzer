@@ -29,6 +29,6 @@ namespace AlgorithmAnalyzer
                 Analyzer.Evaluate(new TravellingSalesman())
             };
             results.ForEach(x => CsvWriter.WriteAnalyzeResult(x));
-        } 
+        }
     }
 }
