@@ -11,7 +11,7 @@ namespace Algo.Algorithms
     {
         public int[] Execute(int[] input)
         {
-            int minRun = calcMinRun(input.Length);
+            int minRun = calcMinRun(input.Length); //
 
             for (int start = 0; start < input.Length; start += minRun)
             {
