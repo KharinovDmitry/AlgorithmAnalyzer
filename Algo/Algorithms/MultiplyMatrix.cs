@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class MultiplyMatrix : IAlgorithm<Tuple<int[,], int[,]>>
+    public class MultiplyMatrix : IAlgorithm<int[,], Tuple<int[,], int[,]>>
     {
-        public void Execute(Tuple<int[,], int[,]> input)
+        public int[,] Execute(Tuple<int[,], int[,]> input)
         {
             var A = input.Item1;
             var B = input.Item2;
@@ -27,6 +27,7 @@ namespace Algo.Algorithms
                     }
                 }
             }
+            return res;
         }
     }
 }

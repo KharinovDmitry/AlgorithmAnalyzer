@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class ConstFunc : IAlgorithm<int, int[]>
+    public class SumOfElements : IAlgorithm<int, int[]>
     {
         public int Execute(int[] input)
         {
-            return input[0];
+            var sum = 0;
+
+            foreach (int number in input)
+            {
+                sum += number;
+            }
+
+            return sum;
         }
     }
 }

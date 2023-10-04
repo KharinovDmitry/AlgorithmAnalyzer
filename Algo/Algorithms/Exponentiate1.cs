@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class Exponentiate1 : IAlgorithm<Tuple<int, int>>
+    public class Exponentiate1 : IAlgorithm<int, Tuple<int, int>>
 
     {
-        public void Execute(Tuple<int, int> input)
+        public int Execute(Tuple<int, int> input)
         {
             int k = 0;
             int countsteps = 3;
@@ -23,6 +23,8 @@ namespace Algo.Algorithms
                 k++;
             }
 
+            return countsteps;
         }
     }
+
 }

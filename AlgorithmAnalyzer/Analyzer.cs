@@ -10,27 +10,13 @@ namespace AlgorithmAnalyzer
 {
     internal class Analyzer
     {
-        private const int lowerBoundN = 1;
-        private const int higherBoundN = 2000;
         private const int countRepeat = 5;
 
-        private static int step = ((higherBoundN - lowerBoundN) / 10) + 1;
-
-        public static AnalyzeResult Evaluate(IAlgorithm<int[]> algorithm)
+        public static AnalyzeResult Evaluate(IAlgorithm<int[], int[]> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = lowerBoundN; n < higherBoundN; n++)
+            for (int n = 1; n < 2000; n++)
             {
-                if(n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -42,60 +28,81 @@ namespace AlgorithmAnalyzer
                     sw.Stop();
                     t_sum += sw.Elapsed.TotalSeconds;
                 }
-                double med_time = t_sum / 5;
+                double med_time = t_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
-
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             Console.Clear();
             return report;
         }
 
-        public static AnalyzeResult Evaluate(IAlgorithm<Tuple<int, int>> algorithm)
+        public static AnalyzeResult Evaluate(IAlgorithm<int, Tuple<int, int>> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = lowerBoundN; n < higherBoundN; n++)
+            for (int n = 1; n < 2000; n++)
             {
-                if (n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
-                double t_sum = 0;
+                int countStep_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
-                    int x = new Random().Next((int)(DateTime.Now.Ticks % i));
-                    Stopwatch sw = Stopwatch.StartNew();
-                    sw.Start();
-                    algorithm.Execute(Tuple.Create(x, n));
-                    sw.Stop();
-                    t_sum += sw.Elapsed.TotalSeconds;
+                    int x = new Random().Next((int)(DateTime.Now.Ticks % (i + 1)));
+                    countStep_sum += algorithm.Execute(Tuple.Create(x, n));
                 }
-                double med_time = t_sum / 5;
+                double med_time = countStep_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
 
-        public static AnalyzeResult Evaluate(IAlgorithm<Tuple<int[,], int[,]>> algorithm)
+        public static AnalyzeResult Evaluate(IAlgorithm<int, int[]> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = lowerBoundN; n < higherBoundN; n++)
+            for (int n = 1; n < 2000; n++)
             {
-                if (n % step == 0)
+                double t_sum = 0;
+                for (int i = 0; i < countRepeat; i++)
                 {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
+                    var arr = GenerateRandomArray(n);
+                    Stopwatch sw = Stopwatch.StartNew();
+                    sw.Start();
+                    algorithm.Execute(arr);
+                    sw.Stop();
+                    t_sum += sw.Elapsed.TotalSeconds;
                 }
+                double med_time = t_sum / countRepeat;
+                report.AddMeasurement(n, med_time);
+            }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
+            return report;
+        }
 
+        public static AnalyzeResult Evaluate(IAlgorithm<double, int[]> algorithm)
+        {
+            AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
+            for (int n = 1; n < 2000; n++)
+            {
+                double t_sum = 0;
+                for (int i = 0; i < countRepeat; i++)
+                {
+                    var arr = GenerateRandomArray(n);
+                    Stopwatch sw = Stopwatch.StartNew();
+                    sw.Start();
+                    algorithm.Execute(arr);
+                    sw.Stop();
+                    t_sum += sw.Elapsed.TotalSeconds;
+                }
+                double med_time = t_sum / countRepeat;
+                report.AddMeasurement(n, med_time);
+            }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
+            return report;
+        }
+
+        public static AnalyzeResult Evaluate(IAlgorithm<int[,], Tuple<int[,], int[,]>> algorithm)
+        {
+            AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
+            for (int n = 1; n < 100; n++)
+            {
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -110,6 +117,50 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / 5;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
+            return report;
+        }
+        public static AnalyzeResult Evaluate(IAlgorithm<int[], int[,]> algorithm)
+        {
+            AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
+            for (int n = 3; n < 12; n++)
+            {
+                double t_sum = 0;
+                for (int i = 0; i < countRepeat; i++)
+                {
+                    int[,] graph = GenerateRandomConnectedGraph(n);
+                    Stopwatch sw = Stopwatch.StartNew();
+                    sw.Start();
+                    algorithm.Execute(graph);
+                    sw.Stop();
+                    t_sum += sw.Elapsed.TotalSeconds;
+                }
+                double med_time = t_sum / countRepeat;
+                report.AddMeasurement(n, med_time);
+            }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
+            return report;
+        }
+
+
+        public static AnalyzeResult Evaluate(IAlgorithm<double[,], int> algorithm)
+        {
+            AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
+            for (int n = 1; n < 12 ; n++)
+            {
+                double t_sum = 0;
+                for (int i = 0; i < countRepeat; i++)
+                {
+                    Stopwatch sw = Stopwatch.StartNew();
+                    sw.Start();
+                    algorithm.Execute(n);
+                    sw.Stop();
+                    t_sum += sw.Elapsed.TotalSeconds;
+                }
+                double med_time = t_sum / 5;
+                report.AddMeasurement(n, med_time);
+            }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
         private static int[,] GenerateRandomMatrix(int n)
@@ -131,6 +182,21 @@ namespace AlgorithmAnalyzer
             for (int i = 0; i < n; i++)
             {
                 res[i] = new Random((int)(DateTime.Now.Ticks % (i + 1))).Next(0, 1000);
+            }
+            return res;
+        }
+        private static int[,] GenerateRandomConnectedGraph(int n)
+        {
+            Random rand = new Random();
+            int[,] res = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    int distance = rand.Next(10, 100);
+                    res[i, j] = distance;
+                    res[j, i] = distance;
+                }
             }
             return res;
         }

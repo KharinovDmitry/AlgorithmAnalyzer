@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class Exponentiate2 : IAlgorithm<Tuple<int, int>>
+    public class Exponentiate2 : IAlgorithm<int, Tuple<int, int>>
     {
-        public void Execute(Tuple<int, int> input)
+        private static int countstep = 0;
+        public int Execute(Tuple<int, int> input)
         {
-            int result = Exponentiate(input.Item1, input.Item2); 
+            return Exponentiate(input.Item1, input.Item2); 
             
         }
         public static int Exponentiate(int value, int pow)
         {
-            int countstep = 0; ;
             if (pow == 0)
             {
                 countstep += 2;
-                return value;
+                return countstep;
             }
             if (pow > 0)
             {
                 countstep += 5;
-                return (Exponentiate(value, pow - 1) * value);
+                return Exponentiate(value, pow - 1);
+                
             }
             return Exponentiate(value, -pow);
         }

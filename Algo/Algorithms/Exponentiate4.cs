@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    public class Exponentiate4 : IAlgorithm<Tuple<int, int>>
+    public class Exponentiate4 : IAlgorithm<int, Tuple<int, int>>
     {
-        public void Execute(Tuple<int, int> input)
+        public int Execute(Tuple<int, int> input)
         {
-            Exponentiate(input.Item1, input.Item2);
+            (var res, var c) = Exponentiate(input.Item1, input.Item2);
+            return c;
         }
 
         public static (int Result, int Count) Exponentiate(int value, int pow)
