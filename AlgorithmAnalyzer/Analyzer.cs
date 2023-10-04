@@ -12,24 +12,11 @@ namespace AlgorithmAnalyzer
     {
         private const int countRepeat = 5;
 
-        //private static int step = ((higherBoundN - lowerBoundN) / 10) + 1;
-
         public static AnalyzeResult Evaluate(IAlgorithm<int[], int[]> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            var step = (2000 - 1) / 10 + 1;
             for (int n = 1; n < 2000; n++)
             {
-                if(n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -44,26 +31,16 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
-
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             Console.Clear();
             return report;
         }
 
         public static AnalyzeResult Evaluate(IAlgorithm<int, Tuple<int, int>> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-            var step = (2000 - 1) / 10 + 1;
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
             for (int n = 1; n < 2000; n++)
             {
-                if (n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 int countStep_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -73,25 +50,15 @@ namespace AlgorithmAnalyzer
                 double med_time = countStep_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
 
         public static AnalyzeResult Evaluate(IAlgorithm<int, int[]> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
-            var step = (2000 - 1) / 10 + 1;
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
             for (int n = 1; n < 2000; n++)
             {
-                if (n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -105,25 +72,15 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
 
         public static AnalyzeResult Evaluate(IAlgorithm<double, int[]> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
-            var step = (2000 - 1) / 10 + 1;
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
             for (int n = 1; n < 2000; n++)
             {
-                if (n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -137,25 +94,15 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
 
         public static AnalyzeResult Evaluate(IAlgorithm<int[,], Tuple<int[,], int[,]>> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
-            var step = (200 - 1) / 10 + 1;
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
             for (int n = 1; n < 100; n++)
             {
-                if (n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -170,24 +117,14 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / 5;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
         public static AnalyzeResult Evaluate(IAlgorithm<int[], int[,]> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            var step = (12 - 3) / 10 + 1;
             for (int n = 3; n < 12; n++)
             {
-                if (n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -201,25 +138,16 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
 
 
         public static AnalyzeResult Evaluate(IAlgorithm<double[,], int> algorithm)
         {
-            Console.WriteLine(algorithm.GetType().Name);
-            Console.WriteLine("[..........]");
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-            var step = 1;
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = 1; n < 10; n++)
+            for (int n = 1; n < 12 ; n++)
             {
-                if (n % step == 0)
-                {
-                    Console.SetCursorPosition(n / step, Console.CursorTop);
-                    Console.Write("-");
-                }
-
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
                 {
@@ -232,6 +160,7 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / 5;
                 report.AddMeasurement(n, med_time);
             }
+            Console.WriteLine($"{algorithm.GetType().Name} Done");
             return report;
         }
         private static int[,] GenerateRandomMatrix(int n)

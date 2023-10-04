@@ -10,15 +10,15 @@ namespace Algo.Algorithms
     {
         public int[] Execute(int[] input)
         {
-            for (int i = 0; i < input.Length - 1; i++)
+            for (int i = 0; i < input.Length; i++)
             {
-                for (int j = i + 1; j < input.Length; j++)
+                for (int j = 0; j < input.Length; j++)
                 {
-                    if (input[i] > input[j])
+                    if (input[j] > input[j + 1])
                     {
-                        int t = input[i];
-                        input[i] = input[j];
-                        input[j] = t;
+                        int t = input[j];
+                        input[j] = input[j + 1];
+                        input[j + 1 ] = t;
                     }
                 }
             }

@@ -8,6 +8,7 @@ namespace Algo.Algorithms
 {
     public class Exponentiate2 : IAlgorithm<int, Tuple<int, int>>
     {
+        private static int countstep = 0;
         public int Execute(Tuple<int, int> input)
         {
             return Exponentiate(input.Item1, input.Item2); 
@@ -15,7 +16,6 @@ namespace Algo.Algorithms
         }
         public static int Exponentiate(int value, int pow)
         {
-            int countstep = 0;
             if (pow == 0)
             {
                 countstep += 2;
@@ -24,7 +24,8 @@ namespace Algo.Algorithms
             if (pow > 0)
             {
                 countstep += 5;
-                return (Exponentiate(value, pow - 1) * value);
+                return Exponentiate(value, pow - 1);
+                
             }
             return Exponentiate(value, -pow);
         }
