@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Algo.Algorithms
 {
-    internal class BucketSort : IAlgorithm<int[]>
+    public class BucketSort : IAlgorithm<int[], int[]>
     {
-        public void Execute(int[] input)
+        public int[] Execute(int[] input)
         {
             BucketSorting(input);
+            return input;
         }
         public void BucketSorting(int[] a) {
             List<int>[] aux = new List<int>[a.Length];
@@ -35,6 +36,10 @@ namespace Algo.Algorithms
 
             for (int i = 0; i < aux.Length; i++)
             {
+                if(numRange == 0)
+                {
+                    return;
+                }
                 int bcktIdx = (int)Math.Floor((a[i] - minValue) / numRange * (aux.Length - 1));
                 aux[bcktIdx].Add(a[i]);   
             }

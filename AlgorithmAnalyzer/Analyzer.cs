@@ -14,7 +14,8 @@ namespace AlgorithmAnalyzer
 
         public static AnalyzeResult Evaluate(IAlgorithm<int[], int[]> algorithm)
         {
-            AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
+            string algoName = algorithm.GetType().Name;
+            AnalyzeResult report = new AnalyzeResult(algoName);
             for (int n = 1; n < 2000; n++)
             {
                 double t_sum = 0;
@@ -31,8 +32,7 @@ namespace AlgorithmAnalyzer
                 double med_time = t_sum / countRepeat;
                 report.AddMeasurement(n, med_time);
             }
-            Console.WriteLine($"{algorithm.GetType().Name} Done");
-            Console.Clear();
+            Console.WriteLine($"{algoName} Done");
             return report;
         }
 
