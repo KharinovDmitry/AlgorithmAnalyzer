@@ -9,6 +9,12 @@ namespace Algo.Algorithms
 {
     public class Timsort : IAlgorithm<int[], int[]>
     {
+        public int Min => 2;
+
+        public int Max => 50000;
+
+        public int Step => 10;
+
         public int[] Execute(int[] input)
         {
 

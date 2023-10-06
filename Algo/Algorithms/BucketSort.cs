@@ -9,6 +9,12 @@ namespace Algo.Algorithms
 {
     public class BucketSort : IAlgorithm<int[], int[]>
     {
+        public int Min => 2;
+
+        public int Max => 200000;
+
+        public int Step => 50;
+
         public int[] Execute(int[] input)
         {
             BucketSorting(input);

@@ -9,6 +9,12 @@ namespace Algo.Algorithms
 {
     public class MultiplyMatrix : IAlgorithm<int[,], Tuple<int[,], int[,]>>
     {
+        public int Min => 2;
+
+        public int Max => 500;
+
+        public int Step => 10;
+
         public int[,] Execute(Tuple<int[,], int[,]> input)
         {
             var A = input.Item1;

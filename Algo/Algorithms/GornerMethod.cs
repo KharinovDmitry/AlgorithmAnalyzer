@@ -8,6 +8,12 @@ namespace Algo.Algorithms
 {
     public class GornerMethod : IAlgorithm<double, int[]>
     {
+        public int Min => 1;
+
+        public int Max => 10000;
+
+        public int Step => 1;
+
         public double Execute(int[] input)
         {
             return CalcP(input, 0, 1.5);

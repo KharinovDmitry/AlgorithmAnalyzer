@@ -8,6 +8,12 @@ namespace Algo.Algorithms
 {
     public class Exponentiate4 : IAlgorithm<int, Tuple<int, int>>
     {
+        public int Min => 1;
+
+        public int Max => 1000000;
+
+        public int Step => 10;
+
         public int Execute(Tuple<int, int> input)
         {
             (var res, var c) = Exponentiate(input.Item1, input.Item2);

@@ -8,6 +8,12 @@ namespace Algo.Algorithms
 {
     public class QuickSort : IAlgorithm<int[], int[]>
     {
+        public int Min => 2;
+
+        public int Max => 50000;
+
+        public int Step => 10;
+
         public int[] Execute(int[] input)
         {
             Sort(input, 0, input.Length - 1);

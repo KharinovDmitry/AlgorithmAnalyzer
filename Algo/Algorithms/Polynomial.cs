@@ -8,6 +8,12 @@ namespace Algo.Algorithms
 {
     public class Polynomial : IAlgorithm<double, int[]>
     {
+        public int Min => 1;
+
+        public int Max => 100000;
+
+        public int Step => 10;
+
         public double Execute(int[] input)
         {
             double res = 0;
@@ -17,7 +23,7 @@ namespace Algo.Algorithms
             {
                 res += input[i - 1] * Math.Pow(x, i - 1);
             }
-
+            
             return res;
         }
     }

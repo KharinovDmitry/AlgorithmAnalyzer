@@ -16,7 +16,7 @@ namespace AlgorithmAnalyzer
         {
             string algoName = algorithm.GetType().Name;
             AnalyzeResult report = new AnalyzeResult(algoName);
-            for (int n = 1; n < 2000; n++)
+            for (int n = algorithm.Min; n <= algorithm.Max; n += algorithm.Step)
             {
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
@@ -39,7 +39,7 @@ namespace AlgorithmAnalyzer
         public static AnalyzeResult Evaluate(IAlgorithm<int, Tuple<int, int>> algorithm)
         {
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = 1; n < 2000; n++)
+            for (int n = algorithm.Min; n <= algorithm.Max; n += algorithm.Step)
             {
                 int countStep_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
@@ -57,7 +57,7 @@ namespace AlgorithmAnalyzer
         public static AnalyzeResult Evaluate(IAlgorithm<int, int[]> algorithm)
         {
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = 1; n < 2000; n++)
+            for (int n = algorithm.Min; n <= algorithm.Max; n += algorithm.Step)
             {
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
@@ -79,7 +79,7 @@ namespace AlgorithmAnalyzer
         public static AnalyzeResult Evaluate(IAlgorithm<double, int[]> algorithm)
         {
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = 1; n < 2000; n++)
+            for (int n = algorithm.Min; n <= algorithm.Max; n += algorithm.Step)
             {
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
@@ -101,7 +101,7 @@ namespace AlgorithmAnalyzer
         public static AnalyzeResult Evaluate(IAlgorithm<int[,], Tuple<int[,], int[,]>> algorithm)
         {
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = 1; n < 100; n++)
+            for (int n = algorithm.Min; n <= algorithm.Max; n += algorithm.Step)
             {
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
@@ -123,7 +123,7 @@ namespace AlgorithmAnalyzer
         public static AnalyzeResult Evaluate(IAlgorithm<int[], int[,]> algorithm)
         {
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = 3; n < 12; n++)
+            for (int n = algorithm.Min; n <= algorithm.Max; n += algorithm.Step)
             {
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)
@@ -146,7 +146,7 @@ namespace AlgorithmAnalyzer
         public static AnalyzeResult Evaluate(IAlgorithm<double[,], int> algorithm)
         {
             AnalyzeResult report = new AnalyzeResult(algorithm.GetType().Name);
-            for (int n = 1; n < 12 ; n++)
+            for (int n = algorithm.Min; n <= algorithm.Max; n += algorithm.Step)
             {
                 double t_sum = 0;
                 for (int i = 0; i < countRepeat; i++)

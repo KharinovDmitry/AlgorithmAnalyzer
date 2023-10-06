@@ -12,7 +12,7 @@ namespace AlgorithmAnalyzer
             List<AnalyzeResult> results = new List<AnalyzeResult>
             {
                 Analyzer.Evaluate(new BubbleSort()),
-                Analyzer.Evaluate(new BubbleSort()),
+                Analyzer.Evaluate(new BucketSort()),
                 Analyzer.Evaluate(new ConstFunc()),
                 Analyzer.Evaluate(new Exponentiate1()),
                 Analyzer.Evaluate(new Exponentiate2()),

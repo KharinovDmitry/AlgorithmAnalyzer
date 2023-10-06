@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,21 +14,20 @@ namespace Algo.Algorithms
         int bestTourCost;
         int n;
 
+        public int Min => 3;
+
+        public int Max => 17;
+
+        public int Step => 1;
+
         public int[] Execute(int[,] input)
         {
             distanceMatrix = input;
             n = distanceMatrix.GetLength(0);
             bestTour = new int[n];
             bestTourCost = int.MaxValue;
-            for (int startCity = 0; startCity < n; startCity++)
-            {
-                FindBestTour(startCity, new int[] { startCity }, 0);
-            }
 
-            int[] temp = new int[bestTour.Length + 1];
-            bestTour.CopyTo(temp, 0);
-            temp[temp.Length - 1] = 0;
-            bestTour = temp;
+            FindBestTour(0, new int[] { 0 }, 0);
 
             return bestTour;
         }
@@ -53,7 +53,7 @@ namespace Algo.Algorithms
                 {
                     int newCost = currentCost + distanceMatrix[currentCity, nextCity];
 
-                    if (nextCity >= bestTourCost)
+                    if (newCost >= bestTourCost)
                     {
                         continue;
                     }

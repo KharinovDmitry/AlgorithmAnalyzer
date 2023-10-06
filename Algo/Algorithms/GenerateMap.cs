@@ -8,6 +8,12 @@ namespace Algo.Algorithms
 {
     public class GenerateMap : IAlgorithm<double[,], int>
     {
+        public int Min => 1;
+
+        public int Max => 12;
+
+        public int Step => 1;
+
         public double[,] Execute(int n)
         {
             MapGenerator mapGen = new MapGenerator(n);
